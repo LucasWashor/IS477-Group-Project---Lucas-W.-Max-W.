@@ -32,7 +32,7 @@ Below is an update on each major task from our project plan.
 **What we’ve done:**
 
 - We downloaded the IMDb dataset and the Box Office dataset from Kaggle.
-- We are adding both raw files to our GitHub repository as part of this milestone.
+- We uploaded both raw CSV files into the `data/raw/` folder of our GitHub repository.
 - We quickly reviewed each dataset to understand what columns they have and what years they cover.
 
 These files are now ready for cleaning and integration.
@@ -43,7 +43,7 @@ These files are now ready for cleaning and integration.
 
 **What we’ve done so far:**
 
-- Loaded both datasets into Python and looked at the basic structure.
+- Loaded both datasets into Python and looked at the basic structure (work shown in `notebooks/01_initial_exploration.ipynb`).
 - Cleaned some initial issues such as:
   - Converting numeric columns to the correct types.
   - Lowercasing and trimming movie titles for consistency.
@@ -52,9 +52,9 @@ These files are now ready for cleaning and integration.
 
 **What still needs to be done:**
 
-- Need to actually finish cleaning missing values (especially revenue).
-- We need to ecide how to handle duplicated or inconsistent movie titles.
-- Create finalized “clean” versions of both datasets before merging.
+- Need to actually finish cleaning missing values (especially in revenue).
+- We need to decide how to handle duplicated or inconsistent movie titles.
+- Create finalized “clean” versions of both datasets before merging that will eventually be saved to `data/processed/`.
 
 ---
 
@@ -62,9 +62,9 @@ These files are now ready for cleaning and integration.
 
 **What we’ve done so far:**
 
-- We tried an initial merge using movie title + release year.
+- We tried an initial merge using movie title + release year (experimented within `notebooks/01_initial_exploration.ipynb`).
 - We found that some titles don’t match exactly between datasets (punctuation, extra words, etc.).
-- We created a first version of a merged dataset using exact matches only.
+- We created a first version of a merged dataset using exact matches only (Although not yet finalized,, which will later be stored in `data/processed).
 
 **Next steps:**
 
@@ -79,6 +79,7 @@ These files are now ready for cleaning and integration.
 - Built this StatusReport.md file.
 - Collected progress updates from both team members.
 - Documented what tasks are done, in progress, and still ahead.
+- Organized the project folders (`data/raw/`, `data/processed/`, `notebooks/`).
 - Prepared the repository so that everything done so far is pushed and organized.
 
 ---
@@ -88,6 +89,7 @@ These files are now ready for cleaning and integration.
 **Early steps completed:**
 
 - Created a few basic exploratory charts (revenue distributions, rating distributions) just to understand the data.
+- (not yet committed, but will be added to `notebooks/02_analysis.ipynb` during the next milestone)
 
 **Main work still ahead:**
 
@@ -100,6 +102,7 @@ These files are now ready for cleaning and integration.
   - Scatterplots of rating vs. revenue
   - Bar charts of revenue by genre
   - Trend lines for revenue over time
+- The graphs will be stored in a new `visualizations/` directory or inside our analysis notebooks.
 
 We can actually start this stuff in full once the merge is finalized.
 
