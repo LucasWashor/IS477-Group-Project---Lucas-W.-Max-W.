@@ -184,6 +184,8 @@ No major changes to research questions or datasets so far.
 ### **6.1 Lucas Washor (Lwashor02)**  
 For this milestone, I worked mainly on acquiring the datasets and beginning the cleaning process. I downloaded the datasets, added them to our repo, and wrote the first cleaning scripts to standardize formats and inspect missing values. I also helped write and organize this status report.
 
+### **6.2 Max Washor (Mwashor2)**  
+For this milestone, I focused on testing the merge between the datasets and exploring how well the movie titles match. I set up the early integration notebook, tried different matching approaches, and created some early exploratory plots. I also helped update our project scope and next steps.
 
 
 ---
