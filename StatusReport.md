@@ -109,15 +109,22 @@ We can actually start this stuff in full once the merge is finalized.
 
 **Plan:**
 
-- Create:
-  - A simple Python “run-all” script
-- Automate steps:
-  1. Clean data  
-  2. Merge data  
-  3. Run analysis  
-  4. Produce final visualizations  
+We haven’t fully decided on our workflow automation tool yet. We are considering two options:
 
-The goal is to make the project reproducible from start to finish.
+1. **A simple Python “run-all” script** that runs the cleaning, merging, and analysis steps in order.
+2. **Using Snakemake**, which we recently learned in lab, to build a more structured and reproducible workflow.
+
+Our choice will depend on how complex our final process becomes. If the project requires multiple steps that depend on each other, Snakemake might make things cleaner and easier to reproduce. If the workflow ends up being straightforward, a run-all script may be enough.
+
+Either way, the final workflow will automate:
+
+- Cleaning the datasets  
+- Merging the IMDb and Box Office data  
+- Running our analyses  
+- Generating tables and visualizations  
+
+
+We will finalize this decision after the integration step is complete
 
 ---
 
@@ -158,6 +165,9 @@ So far, most of our project plan has stayed the same, but a few small adjustment
 - **Predictive modeling may be optional.**  
   If time allows, we’ll build a simple prediction model, but the main focus will just be on analysis and visual trends.
 
+ - **We are still deciding whether to use Snakemake or a simple run-all script for workflow automation.**  
+  We originally planned to use a basic Python script, but after learning Snakemake in lab, we are considering it as a possible option for a more organized and reproducible workflow.
+
 
 No major changes to research questions or datasets so far.
 
@@ -179,7 +189,7 @@ No major changes to research questions or datasets so far.
 
 ---
 
-## 6. Contribution Summary (Each Team Member Writes Their Own)
+## 6. Contribution Summary
 
 ### **6.1 Lucas Washor (Lwashor02)**  
 For this milestone, I worked mainly on acquiring the datasets and beginning the cleaning process. I downloaded the datasets, added them to our repo, and wrote the first cleaning scripts to standardize formats and inspect missing values. I also helped write and organize this status report.
