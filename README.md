@@ -87,3 +87,12 @@ McKinney, W. (2010). Data Structures for Statistical Computing in Python. Procee
 
 Hunter, J. D. (2007). Matplotlib: A 2D Graphics Environment. Computing in Science & Engineering.
 
+
+## Box Data Access
+
+The processed merged dataset (`movies_merged.csv`) is available via Box at the following link:
+
+[https://uofi.box.com/s/6to6nvbej27rltilcwix99cnwn8c2bhk]
+
+After downloading, place the file into the `data/processed/` directory before running the visualization scripts.
+
