@@ -74,7 +74,7 @@ To reproduce this project from scratch, follow these steps:
    ```bash
    pip install pandas matplotlib
 
-Software dependencies for this project are listed in the `requirements.txt` file.
+The full Python environment used for this project is recorded in `pip_freeze.txt`, and core dependencies are listed in `requirements.txt`.
 
 
 ## Contribution Statement
