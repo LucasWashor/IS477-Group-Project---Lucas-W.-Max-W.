@@ -17,3 +17,57 @@ To answer these questions, we built a reproducible data workflow using Python. W
 After producing the merged dataset, we generated several visualizations to explore the relationships within the data. These included a scatterplot of revenue versus IMDb rating, a bar chart showing median revenue by genre, and a line chart showing median revenue over time. Together, these visualizations helped us identify patterns and evaluate how different factors contribute to financial performance.
 
 Overall, our findings suggest that movie success is influenced by multiple factors rather than any single variable. Higher IMDb ratings tend to be associated with higher revenue on average, but the relationship is weak and highly variable. Certain genres consistently show higher median revenue than others, which reflects differences in production budgets, audience size, and distribution scale. Revenue also varies significantly from year to year, likely reflecting shifts in industry trends, major franchise releases, and broader economic conditions. These results reinforce the idea that box office success is multi-dimensional and cannot be predicted by ratings or genre alone.
+
+## Data Profile
+
+Our project uses two primary datasets that were combined into a single merged dataset for analysis. The first dataset, `movie_metadata.csv`, contains IMDb-style metadata for a large collection of movies. This dataset includes information such as movie titles, release years, genres, runtimes, IMDb user ratings, budgets, number of user votes, and several popularity indicators such as Facebook likes for actors and films. Each row represents one movie, and the most important fields for our analysis were the movie title (`movie_title`), release year (`title_year`), genres (`genres`), runtime (`duration`), and IMDb rating (`imdb_score`).
+
+The second dataset, `enhanced_box_office_data(2000-2024)u.csv`, contains worldwide box office revenue information for movies released between 2000 and 2024. Key fields in this dataset include the movie title (`Release Group`), the release year (`Year`), and worldwide revenue (`$Worldwide`). We treated worldwide revenue as our main measure of commercial success. Because this dataset only covers movies from 2000–2024, our final merged dataset is effectively limited to that same time window.
+
+To integrate the two datasets, we standardized the movie titles in both files by converting them to lowercase and trimming extra whitespace, creating a new field called `title_clean`. We then merged the datasets using `title_clean` and `year`. Before merging, we also dropped rows that were missing critical fields such as title, year, or revenue. After cleaning and merging, the final processed dataset contained 2,095 movies with both metadata and revenue information. This merged dataset is saved as `data/processed/movies_merged.csv` and serves as the main input for our analysis and visualizations.
+
+From a legal and ethical perspective, both datasets originate from third-party sources that compile publicly available IMDb and box office data. We do not claim ownership over the original data. The data does not include direct personal identifiers; instead, it contains information about films, reviews, and financial outcomes. However, the datasets reflect industry-level and platform-level biases. For example, movies that are independently produced, international, or digitally released may be underrepresented. We document these limitations as part of our project’s transparency goals.
+
+For reproducibility, the raw input datasets are stored in `data/raw/`, while the cleaned and merged output is stored in `data/processed/`. Our processed dataset is also uploaded to Box so that others can reproduce our analysis without needing to manually download the raw files.
+
+## Data Quality
+
+Several data quality issues were present in both original datasets and required careful handling before merging. In the IMDb-style metadata dataset, some movies were missing release years, runtimes, or IMDb ratings. Rows that were missing a title or release year were dropped because those fields are required for merging. In addition, numeric columns such as runtime, year, and rating needed to be explicitly cast to appropriate data types to ensure consistent analysis.
+
+In the box office dataset, some records contained missing or zero values for worldwide revenue. Because revenue is our primary outcome variable, rows without valid revenue values were removed. This filtering step reduces the total number of movies but ensures that the remaining records represent legitimate financial outcomes rather than placeholders or incomplete entries.
+
+One of the largest data quality challenges involved matching movie titles between the two datasets. Titles were often formatted differently across sources due to punctuation, capitalization, or small naming variations. To address this, we created a cleaned version of the movie title (`title_clean`) in both datasets by stripping whitespace and converting all text to lowercase. We then merged using both `title_clean` and release year. This approach improved matching accuracy but still may exclude some valid matches where titles differ more substantially.
+
+Another major quality issue is the extreme skew in box office revenue. A small number of blockbuster films earn very large revenue values, while most films earn far less. This skew makes average revenue misleading in many cases, so our visualizations focus on medians rather than means when comparing revenue across genres and over time. We chose this approach to reduce the influence of extreme outliers while still representing overall trends.
+
+Finally, the merged dataset is not a complete record of all movies produced between 2000 and 2024. It only includes films that appear in both the IMDb metadata dataset and the box office dataset. As a result, smaller independent films, limited international releases, and movies without reported revenue are underrepresented. We document this as an important limitation of our analysis.
+
+## Findings
+
+Using the merged dataset of 2,095 movies, we explored three main relationships: revenue versus IMDb rating, median revenue by genre, and median revenue over time. The scatterplot of revenue versus IMDb rating shows a weak positive relationship. On average, higher-rated movies tend to earn more revenue, but the spread is very wide. There are many movies with moderate ratings that perform extremely well financially, as well as some highly rated films that generate relatively low revenue. This suggests that ratings alone are not a strong predictor of box office success.
+
+When examining revenue by genre, we used the first listed genre for each movie as its primary category. We found that certain genres typically associated with large-scale productions, such as action and adventure-style categories, tend to have the highest median revenue. Genres associated with smaller productions, such as drama and comedy, generally show lower median revenue. This aligns with expectations about production budgets, target audiences, and distribution scale.
+
+The time-series visualization of median revenue by year shows that revenue fluctuates substantially over time. Some years feature noticeably higher median revenue, likely corresponding to strong franchise releases or particularly successful movie lineups. Because we used nominal revenue values, some of this trend may also reflect inflation and changes in global movie markets rather than only differences in movie quality or popularity.
+
+Overall, the findings indicate that movie success is multi-dimensional. Genre clearly plays a role in financial outcomes, and ratings are loosely associated with revenue, but neither variable alone explains box office performance. Release timing and broader industry trends also appear to strongly influence revenue outcomes.
+
+## Future Work
+
+There are several ways this project could be expanded in future work. One major improvement would be adjusting box office revenue for inflation. All revenue values in our current analysis are nominal, which means that year-to-year comparisons are affected by changes in ticket prices and overall economic conditions. Applying inflation-adjusted revenue would allow for more meaningful comparisons across time.
+
+Future work could also explore more advanced modeling approaches. Instead of relying only on visual comparisons, a regression-based model could be built using features such as runtime, budget, genre, and IMDb ratings to predict revenue. This would allow us to quantify the relative importance of different features more precisely.
+
+Another possible extension would involve including more international data or streaming-related performance metrics. Many modern movies generate significant revenue from streaming platforms rather than traditional box office releases. Incorporating streaming viewership data would provide a more complete picture of movie success in the modern media environment.
+
+Finally, future versions of this project could explore more granular genre categories, franchise effects, or the role of major actors and directors. Features such as cast popularity and prior box office performance could help explain why certain movies outperform others even when their ratings are similar.
+
+## Reproducing
+
+To reproduce this project from scratch, follow these steps:
+
+1. Clone the project repository from GitHub.
+2. Ensure you have Python installed (version 3.9+ recommended).
+3. Install required dependencies:
+   ```bash
+   pip install pandas matplotlib
