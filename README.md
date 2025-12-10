@@ -71,3 +71,19 @@ To reproduce this project from scratch, follow these steps:
 3. Install required dependencies:
    ```bash
    pip install pandas matplotlib
+
+   ## Contribution Statement
+
+Lucas Washor did most of the technical implementation of the project, including data cleaning, dataset integration, creation of visualization scripts, and execution of the full reproducible workflow. Max Washor primarily focused on the written components of the project, including the data quality assessment, findings interpretation, and future work discussion. Both collaborators contributed to each other’s main focus of the project whenever needed, and both contributed to project planning, review, and final edits.
+
+
+## References
+
+IMDb-style Movie Metadata Dataset. Kaggle.
+
+Enhanced Box Office Revenue Dataset (2000–2024). Kaggle.
+
+McKinney, W. (2010). Data Structures for Statistical Computing in Python. Proceedings of the 9th Python in Science Conference.
+
+Hunter, J. D. (2007). Matplotlib: A 2D Graphics Environment. Computing in Science & Engineering.
+
