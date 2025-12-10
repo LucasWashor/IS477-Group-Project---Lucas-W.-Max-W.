@@ -34,5 +34,8 @@ language: Primary language of the film
 
 content\_rating: MPAA or international content rating
 
+## Additional Metadata Fields
+
+The merged dataset also contains supplementary metadata such as Facebook popularity metrics, review counts, aspect ratio, and IMDb reference links. These fields were retained during the merge but were not directly used in the final analysis.
 
 
