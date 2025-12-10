@@ -74,7 +74,7 @@ To reproduce this project from scratch, follow these steps:
    ```bash
    pip install pandas matplotlib
 
-   ## Contribution Statement
+## Contribution Statement
 
 Lucas Washor did most of the technical implementation of the project, including data cleaning, dataset integration, creation of visualization scripts, and execution of the full reproducible workflow. Max Washor primarily focused on the written components of the project, including the data quality assessment, findings interpretation, and future work discussion. Both collaborators contributed to each other’s main focus of the project whenever needed, and both contributed to project planning, review, and final edits.
 
